@@ -7,7 +7,8 @@ public class Truck extends MotorizedVehicule {
     private double cargoCapacity;
 
 
-    public Truck(String brand, String model, String color, LocalDate buyingDate, double pricePerDay, Enum fuelType,
+
+    public Truck(String brand, String model, String color, LocalDate buyingDate, double pricePerDay, Fueltype fuelType,
             int fuelConsumption, boolean integratedGPS, double cargoCapacity) {
         super(brand, model, color, buyingDate, pricePerDay, fuelType, fuelConsumption, integratedGPS);
         this.cargoCapacity = cargoCapacity;

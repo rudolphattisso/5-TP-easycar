@@ -7,10 +7,11 @@ public class Car extends MotorizedVehicule {
     private int seat;
 
 
-    public Car(String brand, String model, String color, LocalDate buyingDate, double pricePerDay, Enum fuelType,
-            int fuelConsumption, boolean integratedGPS, int seat) {
+
+
+    public Car(String brand, String model, String color, LocalDate buyingDate, double pricePerDay, Fueltype fuelType,
+            int fuelConsumption, boolean integratedGPS) {
         super(brand, model, color, buyingDate, pricePerDay, fuelType, fuelConsumption, integratedGPS);
-        this.seat = seat;
     }
 
     public int getSeat() {

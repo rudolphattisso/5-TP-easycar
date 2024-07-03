@@ -1,6 +1,7 @@
 package fr.afpa;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public abstract class Vehicule {
     
@@ -9,12 +10,13 @@ public abstract class Vehicule {
     private String color;
     private LocalDate buyingDate;
     private double pricePerDay;
-
-
+    // Si l’on souhaite retrouver toutes les réservation pour un véhicule, 
+    // il est également possible d’ajouter une liste dans la classe « Vehicle » : 
+    private ArrayList<Reservation> reservations = new ArrayList<>();
 
 
     //constructeur
-    public Vehicule(String brand, String model, String color, LocalDate buyingDate, double pricePerDay) {
+    protected Vehicule(String brand, String model, String color, LocalDate buyingDate, double pricePerDay) {
         this.brand = brand;
         this.model = model;
         this.color = color;
@@ -44,7 +46,9 @@ public abstract class Vehicule {
         return pricePerDay;
     }
 
-    
+    public ArrayList<Reservation> getReservations() {
+        return reservations;}
+
     //setters
     public void setBrand(String brand) {
         this.brand = brand;

@@ -12,6 +12,7 @@ import java.io.EOFException;
 import java.util.ArrayList;
 
 public class Customer implements Comparable<Customer>, Serializable {
+    
     private String fistName;
     private String lastName;
     private String address;
@@ -151,9 +152,9 @@ public class Customer implements Comparable<Customer>, Serializable {
                 + totalMoneySpend() + "]";
     }
 
-    public static void serialize(Customer customerToSerialize) {
+    public static void serialize(Customer customerToSerialize, String fileName) {
         try {
-            FileOutputStream fos = new FileOutputStream("customer.serial");
+            FileOutputStream fos = new FileOutputStream(fileName);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             // sérialisation : écriture de l'objet dans le flux de sortie
             oos.writeObject(customerToSerialize);
@@ -167,8 +168,8 @@ public class Customer implements Comparable<Customer>, Serializable {
         }
     }
 
-    public static void deserialize(Customer customerToDeserialize) {
-        try (FileInputStream fileIn = new FileInputStream("customer.deser");
+    public static void deserialize(Customer customerToDeserialize, String fileName) {
+        try (FileInputStream fileIn = new FileInputStream(fileName);
                 ObjectInputStream in = new ObjectInputStream(fileIn)) {
             customerToDeserialize = (Customer) in.readObject();
             System.out.println("La désérialisation est terminée. Objet : " + customerToDeserialize);

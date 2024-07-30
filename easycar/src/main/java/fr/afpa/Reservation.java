@@ -1,9 +1,11 @@
 package fr.afpa;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
-public class Reservation {
+public class Reservation implements Serializable {
+
     private LocalDate startDate;
     private LocalDate endtDate;
     private boolean paid;

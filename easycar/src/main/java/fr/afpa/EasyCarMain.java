@@ -4,6 +4,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import fr.afpa.MotorizedVehicule.Fueltype;
 
 /**
@@ -12,7 +15,7 @@ import fr.afpa.MotorizedVehicule.Fueltype;
  */
 public class EasyCarMain {
     // Creating a logger
-    // private static Logger logger = LogManager.getLogger();
+        private static Logger logger = LogManager.getLogger();
 
     public static void main(String[] args) {
 
@@ -65,17 +68,17 @@ public class EasyCarMain {
 
         Collections.sort(customersArray);
         for (Customer customer: customersArray) {
-           System.out.println(customer.totalMoneySpend());
+           logger.trace(customer.totalMoneySpend());
         }
         
-        Customer.serialize(customer1);
-        Customer.serialize(customer2);
-        Customer.serialize(customer3);
+        Customer.serialize(customer1, "customer1.ser");
+        Customer.serialize(customer2, "customer2.ser");
+        Customer.serialize(customer3,"customer3.ser");
 
-        Customer.deserialize(customer1);
-        Customer.deserialize(customer2);
-        Customer.deserialize(customer3);
-        Customer.deserialize(customer4);
+        Customer.deserialize(customer1,"customer1.ser");
+        Customer.deserialize(customer2,"customer2.ser");
+        Customer.deserialize(customer3,"customer3.ser");
+       
 
     }
 

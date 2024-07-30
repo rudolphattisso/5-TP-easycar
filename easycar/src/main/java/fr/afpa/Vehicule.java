@@ -1,9 +1,10 @@
 package fr.afpa;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public abstract class Vehicule {
+public abstract class Vehicule implements Serializable {
     
     private String brand;
     private String model;
@@ -12,8 +13,7 @@ public abstract class Vehicule {
     private double pricePerDay;
     // Si l’on souhaite retrouver toutes les réservation pour un véhicule, 
     // il est également possible d’ajouter une liste dans la classe « Vehicle » : 
-    private ArrayList<Reservation> reservations = new ArrayList<>();
-
+    private transient ArrayList<Reservation> reservations = new ArrayList<>();
 
     //constructeur
     protected Vehicule(String brand, String model, String color, LocalDate buyingDate, double pricePerDay) {
